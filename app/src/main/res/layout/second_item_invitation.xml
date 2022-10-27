@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/home_recycler_shape"
+    android:paddingBottom="20dp">
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/iv_coin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:src="@drawable/check_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.261" />
+
+    <TextView
+        android:id="@+id/tv_bank_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="My Referees"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_coin"
+        app:layout_constraintStart_toEndOf="@id/iv_coin"
+        app:layout_constraintTop_toTopOf="@id/iv_coin"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_sub_bank_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="until 1 march 2020"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/tv_bank_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_bank_name" />
+
+    <TextView
+        android:id="@+id/tv_back_inventory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:padding="15dp"
+        android:text="12"
+        android:textColor="#F9683B"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_bank_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_bank_name" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="22dp"
+        android:background="#D9FFB9A2"
+        app:layout_constraintTop_toBottomOf="@id/iv_coin" />
+
+    <TextView
+        android:id="@+id/tv_member_gold"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintStart_toStartOf="@id/divider"
+        android:textColor="#FEAD1D"
+        android:paddingTop="7dp"
+        android:paddingEnd="12dp"
+        android:paddingStart="12dp"
+        android:paddingBottom="7dp"
+        android:background="@drawable/member_gold_invitation_shape"
+        android:text="Member gold"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_need_referees"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:text="You need 20 referees to get briliant"
+        android:textSize="@dimen/_9ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toEndOf="@id/tv_member_gold"
+        app:layout_constraintTop_toTopOf="@id/tv_member_gold" />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/tv_need_referees"
+        app:layout_constraintStart_toStartOf="@id/tv_need_referees"
+        android:text="member in 2 mounth"
+        android:textSize="@dimen/_9ssp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

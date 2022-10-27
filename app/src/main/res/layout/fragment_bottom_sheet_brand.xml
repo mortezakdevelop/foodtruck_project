@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        app:behavior_hideable="true"
+        android:id="@+id/nsv_bottom_sheet"
+        app:behavior_peekHeight="@dimen/_300sdp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/cl_bottom_sheet"
+            android:background="@drawable/bottom_sheet_brand_bg_shape"
+            android:paddingStart="@dimen/_30sdp"
+            android:paddingTop="@dimen/_40sdp"
+            android:paddingEnd="@dimen/_30sdp"
+            android:paddingBottom="@dimen/_40sdp">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tv_sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:text="Itlian . Malfoy Street . Sydney . "
+                android:textColor="#7C7C7C"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+            <Spinner
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:id="@+id/spinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:padding="0dp"
+                android:layout_marginTop="-10dp"
+                android:paddingStart="@dimen/_10sdp"
+                android:textSize="@dimen/_5sdp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tv_view_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Location"
+                android:textColor="#4D9CF9"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_sub_title"
+                app:layout_constraintStart_toEndOf="@id/tv_sub_title"
+                app:layout_constraintTop_toTopOf="@id/tv_sub_title" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_marginTop="@dimen/_28sdp"
+                app:layout_constraintStart_toStartOf="@id/tv_sub_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_sub_title"
+                android:id="@+id/iv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+<!--            android:src="@drawable/bottom_sheet_location_image"-->
+
+
+            <TextView
+                android:paddingStart="@dimen/_6sdp"
+                android:textSize="14sp"
+                android:textColor="#3B3B3B"
+                android:text="19 KM"
+                app:layout_constraintBottom_toBottomOf="@id/iv_location"
+                app:layout_constraintTop_toTopOf="@id/iv_location"
+                app:layout_constraintStart_toEndOf="@id/iv_location"
+                android:id="@+id/tv_km_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_star"
+                android:layout_marginStart="@dimen/_28sdp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_km_location"
+                app:layout_constraintTop_toTopOf="@id/tv_km_location"
+                app:layout_constraintStart_toEndOf="@id/tv_km_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+<!--            android:src="@drawable/star_image_bottom_sheet"-->
+
+
+            <TextView
+                android:text="4.8 Rating"
+                android:paddingStart="@dimen/_3sdp"
+                android:textColor="#3B3B3B"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_star"
+                app:layout_constraintTop_toTopOf="@id/iv_star"
+                app:layout_constraintStart_toEndOf="@id/iv_star"
+                android:id="@+id/tv_star_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textSize="12sp"
+                android:lineSpacingExtra="@dimen/_5sdp"
+                android:textColor="@color/black"
+                android:text="Most whole Alaskan Red King Crabs get broken down up into legs, claws, and lump meat. We offer all of these options as well in our online shop, but there is nothing like getting the whole . . . ."
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/iv_location"
+                app:layout_constraintTop_toBottomOf="@id/iv_location"
+                android:id="@+id/tv_text_bottom_sheet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginTop="@dimen/_20sdp"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:text="Menu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_text_bottom_sheet"
+                android:id="@+id/tv_popular_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textSize="12sp"
+                android:textColor="#FF7C32"
+                android:text="View All"
+                app:layout_constraintBottom_toBottomOf="@id/tv_popular_menu"
+                app:layout_constraintTop_toTopOf="@id/tv_popular_menu"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/tv_view_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/recyclerview"
+                app:layout_constraintTop_toBottomOf="@id/tv_popular_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recyclerview"
+                android:textColor="#09051C"
+                android:text="Testimonials"
+                android:id="@+id/tv_testimonials"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tv_add"
+                android:text="Add"
+                android:textSize="12sp"
+                android:textColor="#FF7C32"
+                app:layout_constraintBottom_toBottomOf="@id/tv_testimonials"
+                app:layout_constraintTop_toTopOf="@id/tv_testimonials"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/rv_testimonials"
+                app:layout_constraintTop_toBottomOf="@id/tv_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

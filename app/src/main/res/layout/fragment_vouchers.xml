@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingTop="20dp"
+            android:paddingEnd="@dimen/_15sdp"
+            tools:context=".view.mainFragments.VouchersFragment">
+
+            <TextView
+                android:id="@+id/title_earn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Invite &amp; Earn"
+                android:textColor="#030303"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+            <ru.nikartm.support.ImageBadgeView
+                android:id="@+id/iv_shopping"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:scaleType="center"
+                app:ibv_badgeColor="#F9683B"
+                app:ibv_badgePosition="top_right"
+                app:ibv_badgeTextSize="@dimen/_7sdp"
+                app:ibv_fixedBadgeRadius="@dimen/_4sdp"
+                app:ibv_fixedRadius="true"
+                app:ibv_roundBadge="true"
+                app:ibv_visibleBadge="true"
+                app:layout_constraintBottom_toBottomOf="@id/title_earn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/title_earn"
+                android:background="@drawable/invitation_icon_shape"
+                app:srcCompat="@drawable/ic_shopping_cart" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginEnd="10dp"
+                android:padding="@dimen/_8sdp"
+                android:background="@drawable/invitation_icon_shape"
+                android:src="@drawable/location"
+                app:layout_constraintBottom_toBottomOf="@id/iv_shopping"
+                app:layout_constraintEnd_toStartOf="@id/iv_shopping"
+                app:layout_constraintTop_toTopOf="@id/iv_shopping" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_vouchers"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintTop_toBottomOf="@id/title_earn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+            <!--            <androidx.constraintlayout.utils.widget.ImageFilterView-->
+<!--                android:id="@+id/iv_first_frame"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="25dp"-->
+<!--                android:src="@drawable/frame_image_vouchers"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/title_earn" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_orderNow"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="48dp"-->
+<!--                android:background="@drawable/order_now_shape"-->
+<!--                android:paddingStart="16dp"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:paddingEnd="16dp"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:text="Order Now"-->
+<!--                android:textColor="#15BE77"-->
+<!--                android:textSize="10sp"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/iv_first_frame"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/iv_first_frame"-->
+<!--                app:layout_constraintHorizontal_bias="0.754"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/iv_first_frame" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_october"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="16dp"-->
+<!--                android:text="october"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="17sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/tv_orderNow"-->
+<!--                app:layout_constraintStart_toStartOf="@id/tv_orderNow"-->
+<!--                app:layout_goneMarginBottom="20dp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_special_deal_for"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Special Deal For"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="17sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/tv_october"-->
+<!--                app:layout_constraintStart_toStartOf="@id/tv_october" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/iv_second_frame"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="-20dp"-->
+<!--                android:src="@drawable/second_frame_image"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/iv_first_frame" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_order_now_two"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/order_now_shape"-->
+<!--                android:paddingStart="16dp"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:paddingEnd="16dp"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:text="Order Now"-->
+<!--                android:textColor="#6B3A5B"-->
+<!--                android:textSize="10sp"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/iv_second_frame"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/tv_orderNow"-->
+<!--                app:layout_constraintHorizontal_bias="0.0"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/tv_orderNow"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/iv_first_frame"-->
+<!--                app:layout_constraintVertical_bias="0.683" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_october_two"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="16dp"-->
+<!--                android:text="october"-->
+<!--                android:textColor="#6B3A5B"-->
+<!--                android:textSize="17sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/tv_order_now_two"-->
+<!--                app:layout_constraintStart_toStartOf="@id/tv_orderNow"-->
+<!--                app:layout_goneMarginBottom="20dp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_special_deal_for_two"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Special Deal For"-->
+<!--                android:textColor="#6B3A5B"-->
+<!--                android:textSize="17sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/tv_october_two"-->
+<!--                app:layout_constraintStart_toStartOf="@id/tv_october_two" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/appCompatImageView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:src="@drawable/ic_rectangle_vouchers"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/iv_second_frame"-->
+<!--                tools:layout_editor_absoluteX="19dp" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="28dp"-->
+<!--                android:id="@+id/iv_restaurant_image"-->
+<!--                android:src="@drawable/restaurant_image_vouchers"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/appCompatImageView"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/iv_second_frame"-->
+<!--                app:layout_constraintVertical_bias="0.481" />-->
+
+<!--            <TextView-->
+<!--                android:layout_marginTop="19dp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:id="@+id/tv_discount_on_the_pizza"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:text="10% discount on the pizza"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="15sp"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/appCompatImageView"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/iv_second_frame"-->
+<!--                app:layout_constraintVertical_bias="0.166" />-->
+
+<!--            <TextView-->
+<!--                android:textSize="15sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:id="@+id/iv_menu_of_the_good"-->
+<!--                android:text="menu of good restaurant"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/tv_discount_on_the_pizza"-->
+<!--                app:layout_constraintStart_toStartOf="@id/tv_discount_on_the_pizza"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <TextView-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="12sp"-->
+<!--                android:textColor="#F9683B"-->
+<!--                android:text="Good Food"-->
+<!--                app:layout_constraintEnd_toEndOf="@id/iv_restaurant_image"-->
+<!--                app:layout_constraintStart_toStartOf="@id/iv_restaurant_image"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/iv_restaurant_image"-->
+<!--                android:id="@+id/tv_good_food"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_copy"-->
+<!--                android:textColor="#F9683B"-->
+<!--                android:textSize="12sp"-->
+<!--                android:paddingStart="20dp"-->
+<!--                android:paddingEnd="20dp"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:layout_marginTop="25dp"-->
+<!--                android:background="@drawable/copy_text_shape_bg"-->
+<!--                app:layout_constraintStart_toStartOf="@id/iv_menu_of_the_good"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/iv_menu_of_the_good"-->
+<!--                android:text="COPI09****"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <TextView-->
+<!--                android:text="Copy"-->
+<!--                android:background="@drawable/btn_copy_shape_bg"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:paddingStart="15dp"-->
+<!--                android:paddingEnd="15dp"-->
+<!--                android:textSize="10sp"-->
+<!--                android:layout_marginStart="15dp"-->
+<!--                android:textColor="@color/white"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/tv_copy"-->
+<!--                app:layout_constraintTop_toTopOf="@id/tv_copy"-->
+<!--                app:layout_constraintEnd_toEndOf="@id/iv_menu_of_the_good"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/iv_menu_of_the_good"-->
+<!--                android:id="@+id/btn_buy"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

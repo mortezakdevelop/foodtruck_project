@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:paddingTop="20dp"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:layout_height="match_parent"
+            tools:context=".view.home.PopularFoodFragment">
+
+            <include
+                android:id="@+id/included"
+                layout="@layout/toolbar_main"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/included"
+                android:id="@+id/title_earn"
+                android:layout_marginTop="32dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Popular Food"
+                android:textColor="#030303"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_shopping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/invitation_icon_shape"
+                android:padding="10dp"
+                android:src="@drawable/shopping_cart"
+                app:layout_constraintBottom_toBottomOf="@id/title_earn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/title_earn" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/invitation_icon_shape"
+                android:padding="10dp"
+                android:src="@drawable/location"
+                app:layout_constraintBottom_toBottomOf="@id/iv_shopping"
+                app:layout_constraintEnd_toStartOf="@id/iv_shopping"
+                app:layout_constraintTop_toTopOf="@id/iv_shopping" />
+
+            <EditText
+                android:background="@drawable/search_shape_bg"
+                android:layout_marginTop="20dp"
+                android:id="@+id/et_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_earn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_search"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="6dp"
+                app:layout_constraintWidth_percent="0.85"
+                android:paddingTop="6dp"
+                android:textColorHint="#80F9683B"
+                android:hint="What do you want to order?"
+                android:drawablePadding="10dp"
+                android:textSize="15sp"
+                android:layout_marginRight="8dp"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/invitation_icon_shape"
+                android:padding="10dp"
+                android:src="@drawable/option_image"
+                app:layout_constraintBottom_toBottomOf="@+id/et_search"
+                app:layout_constraintEnd_toEndOf="@id/iv_shopping"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/iv_shopping"
+                app:layout_constraintTop_toBottomOf="@id/iv_shopping"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                app:layout_constraintTop_toBottomOf="@id/et_search"
+                android:id="@+id/rv_popular_food"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

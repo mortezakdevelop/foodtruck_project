@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:paddingTop="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_12sdp"
+        android:paddingStart="@dimen/_22sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_22sdp"
+        android:background="@drawable/testimonials_item_bg_shape"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+<!--        android:src="@drawable/profile_testimotional"-->
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_18sdp"
+            android:text="Dianne Russell"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/iv_profile"
+            app:layout_constraintStart_toEndOf="@id/iv_profile"
+            app:layout_constraintTop_toTopOf="@id/iv_profile"
+            app:layout_constraintVertical_bias="0.333" />
+
+        <TextView
+            android:textColor="#4D3B3B3B"
+            android:text="12 April 2021"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/tv_name"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            android:id="@+id/tv_subtitle_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/iv_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/star_image_testimotion"
+            app:layout_constraintBottom_toBottomOf="@id/tv_subtitle_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_subtitle_name"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:text="This Is great, So delicious! You Must Here, With Your family You Must Here, With Your family..."
+            app:layout_constraintTop_toBottomOf="@id/iv_profile"
+            android:id="@+id/tv_description"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:layout_marginTop="13dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

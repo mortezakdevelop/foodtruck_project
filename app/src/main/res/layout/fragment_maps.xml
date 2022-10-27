@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<!--    <com.mapbox.mapboxsdk.maps.MapView-->
+<!--        android:id="@+id/map_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        mapbox:mapbox_renderTextureMode="true"-->
+<!--        mapbox:mapbox_cameraZoom="11" />-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/linearLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="@dimen/_15sdp"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:id="@+id/imgBack"-->
+<!--            android:layout_width="@dimen/_36sdp"-->
+<!--            android:layout_height="@dimen/_36sdp"-->
+<!--            android:background="@drawable/ripple_black_circle"-->
+<!--            android:clickable="true"-->
+<!--            android:focusable="true"-->
+<!--            android:paddingTop="@dimen/_3sdp"-->
+<!--            android:paddingBottom="@dimen/_3sdp"-->
+<!--            android:src="@drawable/ic_back" />-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/_36sdp"-->
+<!--            android:layout_marginStart="@dimen/_5sdp"-->
+<!--            android:background="@drawable/bg_primary_light_round_10sdp">-->
+
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/searchAddress"-->
+<!--                android:layout_width="@dimen/_20sdp"-->
+<!--                android:layout_height="@dimen/_20sdp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginStart="@dimen/_15sdp"-->
+<!--                android:src="@drawable/ic_search" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatEditText-->
+<!--                android:id="@+id/searchQuery"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:layout_marginStart="@dimen/_10sdp"-->
+<!--                android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                android:ems="10"-->
+<!--                android:fontFamily="@font/main_font"-->
+<!--                android:hint="@string/search_your_address"-->
+<!--                android:inputType="textPersonName"-->
+<!--                android:textColor="@color/colorPrimary"-->
+<!--                android:textColorHint="@color/color_hint_primary"-->
+<!--                android:textSize="12sp" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/clearSearch"-->
+<!--                android:layout_width="@dimen/_20sdp"-->
+<!--                android:layout_height="@dimen/_20sdp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginEnd="@dimen/_15sdp"-->
+<!--                android:padding="@dimen/_5sdp"-->
+<!--                android:src="@drawable/ic_close"-->
+<!--                android:visibility="gone" />-->
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
+
+
+
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:id="@+id/imgLocationMarker"-->
+<!--        android:layout_width="@dimen/_56sdp"-->
+<!--        android:layout_height="@dimen/_56sdp"-->
+<!--        android:padding="@dimen/_17sdp"-->
+<!--        android:src="@drawable/ic_map_marker"-->
+<!--        android:background="@drawable/bg_primary_round_transparent"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/map_view"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/map_view"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/map_view"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/map_view" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:id="@+id/userLocation"-->
+<!--        android:layout_width="@dimen/_36sdp"-->
+<!--        android:layout_height="@dimen/_36sdp"-->
+<!--        android:layout_margin="@dimen/_15sdp"-->
+<!--        android:src="@drawable/ic_my_location"-->
+<!--        android:visibility="visible"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/setLocation"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:visibility="gone"-->
+<!--        android:background="@drawable/bg_white_round_10sdp"-->
+<!--        android:layout_margin="@dimen/_15sdp"-->
+<!--        android:layout_marginBottom="@dimen/_50sdp"-->
+<!--        android:id="@+id/suggestRecycler"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/setLocation"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/_45sdp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_margin="@dimen/_15sdp"-->
+<!--        android:background="@drawable/bg_primary_round_10sdp"-->
+<!--        android:fontFamily="@font/main_font"-->
+<!--        android:gravity="center"-->
+<!--        android:text="@string/set_location"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/map_view" />-->
+</androidx.constraintlayout.widget.ConstraintLayout>

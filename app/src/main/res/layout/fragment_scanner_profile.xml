@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_16sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.mainFragments.OrderFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_width="match_parent"
+        android:id="@+id/cl_qr_code_text"
+        android:background="@drawable/text_qr_code_shape_bg"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/main_font"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="Share this QR code to your friends"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/tv_qr_code_subTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/tv_qr_code_subTitle"
+            android:id="@+id/tv_qr_code_subtitle_two"
+            android:fontFamily="@font/main_font"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="for membership registration,for get "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/tv_qr_code_subtitle_two"
+            android:id="@+id/tv_qr_code_subtitle_three"
+            android:fontFamily="@font/main_font"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:paddingBottom="@dimen/_10sdp"
+            android:text="rewards together!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:layout_marginTop="@dimen/_16sdp"
+        android:src="@drawable/scanner_profile_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_qr_code_text"
+        android:id="@+id/iv_scan"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300sdp"/>
+
+    <TextView
+        android:textSize="18sp"
+        android:fontFamily="@font/main_font"
+        android:paddingStart="@dimen/_40sdp"
+        android:text="Share"
+        android:paddingBottom="@dimen/_5sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:textColor="@color/white"
+        android:paddingEnd="@dimen/_40sdp"
+        android:background="@drawable/btn_scan_background_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_scan"
+        android:id="@+id/btn_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

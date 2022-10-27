@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:padding="5dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/upcommingCardView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="@color/melon"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:layout_gravity="center|start"
+                    android:paddingLeft="10dp"
+                    android:text="this is note for out title in this application" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <com.daimajia.swipe.SwipeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:id="@+id/swipeLayout"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="@dimen/_10sdp"-->
+<!--        app:clickToClose="true">-->
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/swipeRight"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent">-->
+
+<!--            <RelativeLayout-->
+<!--                android:layout_marginStart="@dimen/_5sdp"-->
+<!--                android:background="@drawable/bg_red_round_10sdp"-->
+<!--                android:id="@+id/delete"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent">-->
+
+<!--                <androidx.appcompat.widget.AppCompatImageView-->
+<!--                    android:layout_margin="@dimen/_15sdp"-->
+<!--                    android:layout_width="@dimen/_15sdp"-->
+<!--                    android:layout_height="@dimen/_15sdp"-->
+<!--                    android:layout_centerInParent="true"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:tint="@color/white"-->
+<!--                    android:src="@drawable/ic_trash" />-->
+<!--            </RelativeLayout>-->
+
+<!--        </RelativeLayout>-->
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/swipeLeft"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent">-->
+
+<!--            <RelativeLayout-->
+<!--                android:layout_marginEnd="@dimen/_5sdp"-->
+<!--                android:background="@drawable/bg_green_round_10sdp"-->
+<!--                android:id="@+id/edit"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent">-->
+
+<!--                <androidx.appcompat.widget.AppCompatImageView-->
+<!--                    android:layout_margin="@dimen/_15sdp"-->
+<!--                    android:layout_width="@dimen/_15sdp"-->
+<!--                    android:layout_height="@dimen/_15sdp"-->
+<!--                    android:layout_centerInParent="true"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:tint="@color/white"-->
+<!--                    android:src="@drawable/ic_edit" />-->
+<!--            </RelativeLayout>-->
+
+<!--        </RelativeLayout>-->
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/background"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:padding="@dimen/_15sdp"-->
+<!--            android:background="@drawable/selector_bg">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <androidx.appcompat.widget.AppCompatImageView-->
+<!--                    android:id="@+id/checkBox"-->
+<!--                    android:layout_width="@dimen/_28sdp"-->
+<!--                    android:layout_height="@dimen/_28sdp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_marginEnd="@dimen/_5sdp"-->
+<!--                    app:srcCompat="@drawable/selector_circle_check_box" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/address"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/main_font"-->
+<!--                    android:gravity="end"-->
+<!--                    android:maxLines="2"-->
+<!--                    android:textColor="@color/text_black"-->
+<!--                    android:textSize="14sp"-->
+<!--                    tools:text="2121 6352 8465 ****" />-->
+<!--            </LinearLayout>-->
+
+<!--        </RelativeLayout>-->
+
+<!--    </com.daimajia.swipe.SwipeLayout>-->
+</layout>
+

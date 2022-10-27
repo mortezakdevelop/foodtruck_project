@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="103dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/home_recycler_shape">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_popular_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/popular_food_item_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@id/iv_popular_food"
+            app:layout_constraintTop_toTopOf="@id/iv_popular_food">
+
+
+            <TextView
+                android:id="@+id/tv_title_spacy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Spacy fresh crap"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/subtitle_spacy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Waroenk kita"
+                app:layout_constraintStart_toStartOf="@id/tv_title_spacy"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_spacy" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:textSize="22sp"
+                app:layout_constraintTop_toBottomOf="@id/subtitle_spacy"
+                app:layout_constraintStart_toStartOf="@id/subtitle_spacy"
+                android:text="$ 35"
+                android:textStyle="bold"
+                android:textColor="#F9683B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="Buy"
+            android:paddingStart="27dp"
+            android:paddingEnd="27dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_buy_shape_bg"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,160 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:id="@+id/cl_item"
+                android:layout_margin="@dimen/_8sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginBottom="15dp"
+                android:layout_height="174dp"
+                android:background="@drawable/home_recycler_shape">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/iv_image"
+                    android:layout_marginTop="26dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="@dimen/_70sdp"
+                    tools:src="@drawable/restaurant_company_recycler_one"
+                    android:layout_height="@dimen/_60sdp" />
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:text="Vegan Resto"
+                    android:maxLines="1"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="@id/iv_image"
+                    app:layout_constraintStart_toStartOf="@id/iv_image"
+                    app:layout_constraintTop_toBottomOf="@id/iv_image"
+                    android:id="@+id/tv_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:maxLines="1"
+                    android:gravity="center"
+                    android:text="12 Mins"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintEnd_toEndOf="@id/tv_image"
+                    app:layout_constraintStart_toStartOf="@id/tv_image"
+                    app:layout_constraintTop_toBottomOf="@id/tv_image"
+                    android:id="@+id/tv_minute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
+
+
+
+
+
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
+
+<!--    <data>-->
+
+<!--    </data>-->
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="158dp"-->
+<!--            android:id="@+id/cl_left_item"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            android:layout_marginBottom="15dp"-->
+<!--            android:layout_height="174dp"-->
+<!--            android:background="@drawable/home_recycler_shape">-->
+
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                android:id="@+id/iv_image"-->
+<!--                android:layout_marginTop="26dp"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                tools:src="@drawable/restaurant_company_recycler_one"-->
+<!--                android:layout_height="wrap_content" />-->
+
+<!--            <TextView-->
+<!--                android:textColor="@color/black"-->
+<!--                android:text="Vegan Resto"-->
+<!--                app:layout_constraintEnd_toEndOf="@id/iv_image"-->
+<!--                app:layout_constraintStart_toStartOf="@id/iv_image"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/iv_image"-->
+<!--                android:id="@+id/tv_image"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content" />-->
+
+<!--            <TextView-->
+<!--                android:text="12 Mins"-->
+<!--                android:layout_marginTop="4dp"-->
+<!--                app:layout_constraintEnd_toEndOf="@id/tv_image"-->
+<!--                app:layout_constraintStart_toStartOf="@id/tv_image"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/tv_image"-->
+<!--                android:id="@+id/tv_minute"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="158dp"-->
+<!--            android:id="@+id/cl_right_item"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            android:layout_marginBottom="15dp"-->
+<!--            android:layout_height="174dp"-->
+<!--            android:background="@drawable/home_recycler_shape">-->
+
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                android:id="@+id/iv_image2"-->
+<!--                android:layout_marginTop="26dp"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                tools:src="@drawable/restaurant_company_recycler_one"-->
+<!--                android:layout_height="wrap_content" />-->
+
+<!--            <TextView-->
+<!--                android:textColor="@color/black"-->
+<!--                android:text="Vegan Resto"-->
+<!--                app:layout_constraintEnd_toEndOf="@id/iv_image2"-->
+<!--                app:layout_constraintStart_toStartOf="@id/iv_image2"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/iv_image2"-->
+<!--                android:id="@+id/tv_image2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content" />-->
+
+<!--            <TextView-->
+<!--                android:text="12 Mins"-->
+<!--                android:layout_marginTop="4dp"-->
+<!--                app:layout_constraintEnd_toEndOf="@id/tv_image2"-->
+<!--                app:layout_constraintStart_toStartOf="@id/tv_image2"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/tv_image2"-->
+<!--                android:id="@+id/tv_minute2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+<!--</layout>-->

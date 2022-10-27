@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp"
+    android:background="@drawable/fourth_item_invitation_shape_background"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_change_point"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="change point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_change_point"
+        android:id="@+id/iv_dollar"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:padding="10dp"
+        android:text="RM"
+        android:textStyle="bold"
+        android:textColor="#F9683B"
+        android:background="@drawable/invitation_icon_shape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_convert_referral"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/_12sdp"
+        android:textStyle="bold"
+        android:text="You can convert to referral point"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_dollar"
+        app:layout_constraintStart_toEndOf="@id/iv_dollar"
+        app:layout_constraintTop_toTopOf="@id/iv_dollar"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/tv_to_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/_12sdp"
+        android:text="to money"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="@id/tv_convert_referral"
+        app:layout_constraintTop_toBottomOf="@id/tv_convert_referral" />
+
+    <TextView
+        app:layout_constraintTop_toTopOf="@id/tv_to_money"
+        app:layout_constraintEnd_toEndOf="@id/tv_convert_referral"
+        app:layout_constraintBottom_toBottomOf="@id/tv_to_money"
+        android:textSize="15sp"
+        android:textColor="#F9683B"
+        android:text="1 point = RS 1 "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        app:layout_constraintTop_toBottomOf="@id/tv_to_money"
+        android:layout_width="match_parent"
+        android:text="Convert Money"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_invitation_shape"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="@dimen/_73sdp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_5sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/buy"
+                android:layout_width="@dimen/_63sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:background="@drawable/selector_buy_bg"
+                android:fontFamily="@font/main_font"
+                android:gravity="center"
+                android:textColor="@color/selector_title_buy_btn"
+                android:textSize="12sp"
+                tools:text="@string/buy_again" />
+
+            <LinearLayout
+                android:id="@+id/quantitySection"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/minusQuantity"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:background="@drawable/ic_rectangle_minus_quantity"
+                    android:padding="@dimen/_5sdp"
+                    android:tint="@color/colorPrimary"
+                    app:srcCompat="@drawable/ic_minus_quantity" />
+
+                <TextView
+                    android:id="@+id/quantity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/main_font_bold"
+                    android:gravity="center"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/_9sdp"
+                    tools:text="100" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/addQuantity"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:background="@drawable/ic_rectangle_add_quantity"
+                    android:padding="@dimen/_5sdp"
+                    android:tint="@color/white"
+                    app:srcCompat="@drawable/ic_add_quantity" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

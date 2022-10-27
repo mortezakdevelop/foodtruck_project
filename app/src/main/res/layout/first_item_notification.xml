@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingBottom="@dimen/_10sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/first_item_notification_shape"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/check_image"
+        android:id="@+id/iv_first_item_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="Your order has been taken by the"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        app:layout_constraintTop_toTopOf="@id/iv_first_item_check"
+        app:layout_constraintStart_toEndOf="@id/iv_first_item_check"
+        android:id="@+id/tv_your_order"
+        android:layout_marginStart="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="driver"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/tv_your_order"
+        app:layout_constraintTop_toBottomOf="@id/tv_your_order"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:id="@+id/tv_driver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:textSize="14sp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@id/tv_driver"
+        app:layout_constraintTop_toBottomOf="@id/tv_driver"
+        android:text="Recently"
+        android:id="@+id/tv_recently"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

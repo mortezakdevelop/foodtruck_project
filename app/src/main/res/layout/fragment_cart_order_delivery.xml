@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.texonapp.foodtruck.viewmodel.CartOrderViewModel" />
+
+        <variable
+            name="currencyUtil"
+            type="com.texonapp.foodtruck.util.CurrencyUtil" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.profileFragments.HelpFragment">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_main" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/main_font_bold"
+            android:text="@string/cart"
+            android:textColor="@color/text_black"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone" />
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/factorSection"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/deliverySection"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_primary_round_10spd"
+                            android:padding="@dimen/_10sdp">
+
+                            <TextView
+                                android:id="@+id/deliveryOption"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/main_font"
+                                android:text="@string/deliver_to"
+                                android:textColor="@color/text_gray"
+                                android:textSize="14sp"
+                                app:layout_constraintEnd_toStartOf="@+id/editDelivery"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/editDelivery"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/main_font"
+                                android:text="@string/edit"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="14sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/iconLocation"
+                                android:layout_width="@dimen/_36sdp"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:background="@drawable/invitation_icon_shape"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_location"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/deliveryOption" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:fontFamily="@font/main_font"
+                                android:text="4517 Washington Ave. Manchester, Kentucky 39495"
+                                android:textColor="@color/text_black"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/iconLocation"
+                                app:layout_constraintTop_toBottomOf="@+id/deliveryOption" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/paymentMethodSection"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/border_primary_round_10spd"
+                            android:padding="@dimen/_10sdp">
+
+                            <TextView
+                                android:id="@+id/paymentMethodOption"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/main_font"
+                                android:text="@string/payment_method"
+                                android:textColor="@color/text_gray"
+                                android:textSize="14sp"
+                                app:layout_constraintEnd_toStartOf="@+id/editPaymentMethod"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/editPaymentMethod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/main_font"
+                                android:text="@string/edit"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="14sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/iconPaymentMethod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_paypal_logo"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/paymentMethodOption" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:fontFamily="@font/main_font"
+                                android:text="2121 6352 8465 ****"
+                                android:textColor="@color/text_black"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/iconPaymentMethod"
+                                app:layout_constraintTop_toBottomOf="@+id/paymentMethodOption" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/discountCodeSection"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/border_primary_round_10spd"
+                            android:padding="@dimen/_10sdp">
+
+                            <TextView
+                                android:id="@+id/discountCode"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/main_font"
+                                android:text="@string/discount"
+                                android:textColor="@color/text_gray"
+                                android:textSize="14sp"
+                                app:layout_constraintEnd_toStartOf="@+id/addDiscountCode"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/addDiscountCode"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/main_font"
+                                android:text="@string/add"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="14sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/iconDiscountCode"
+                                android:layout_width="@dimen/_36sdp"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:background="@drawable/invitation_icon_shape"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_gift"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/discountCode" />
+
+                            <TextView
+                                android:id="@+id/textView18"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:fontFamily="@font/main_font"
+                                android:text="@string/do_you_have_discount_gift_card_code"
+                                android:textColor="@color/text_black"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/iconDiscountCode"
+                                app:layout_constraintTop_toBottomOf="@+id/discountCode" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:fontFamily="@font/main_font"
+                                android:text="@string/please_add_your_code"
+                                android:textColor="@color/text_gray"
+                                android:textSize="13sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/iconDiscountCode"
+                                app:layout_constraintTop_toBottomOf="@+id/textView18" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/deliveryChargeSection"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:background="@drawable/border_primary_round_10spd"
+                            android:padding="@dimen/_10sdp">
+
+                            <TextView
+                                android:id="@+id/deliveryChargeOption"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/main_font"
+                                android:text="@string/delivery"
+                                android:textColor="@color/text_gray"
+                                android:textSize="14sp"
+                                app:layout_constraintEnd_toStartOf="@+id/editDeliveryCharge"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/editDeliveryCharge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/main_font"
+                                android:text="@string/edit"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="14sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/iconDeliveryCharge"
+                                android:layout_width="@dimen/_70sdp"
+                                android:layout_height="@dimen/_36sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:padding="@dimen/_8sdp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                bind:setImage="@{viewModel.deliveryChargeService.img}"
+                                app:layout_constraintTop_toBottomOf="@+id/deliveryChargeOption" />
+
+                            <TextView
+                                android:id="@+id/txtDeliveryCharge"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:fontFamily="@font/main_font"
+                                android:text="@string/delivery_charge"
+                                android:textColor="@color/text_gray"
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/iconDeliveryCharge"
+                                app:layout_constraintTop_toBottomOf="@+id/deliveryChargeOption" />
+
+                            <TextView
+                                android:id="@+id/deliveryChargeAmount"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:fontFamily="@font/main_font"
+                                android:text="@{currencyUtil.INSTANCE.splitPriceWithStartCurrency(viewModel.deliveryChargeService.deliveryCharge)}"
+                                android:hint="Not Set"
+                                android:textColor="@color/text_gray"
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/txtDeliveryCharge"
+                                app:layout_constraintTop_toBottomOf="@+id/deliveryChargeOption" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+
+                <LinearLayout
+                    android:id="@+id/factorSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_primary_round_10sdp"
+                    android:padding="@dimen/_15sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/main_font"
+                            android:text="@string/sub_total"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/subTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/main_font"
+                            tools:text="120 $"
+                            android:text="@{currencyUtil.INSTANCE.splitPriceWithStartCurrency(viewModel.subTotal)}"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/main_font"
+                            android:text="@string/delivery_charge"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/deliveryCharge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/main_font"
+                            tools:text="120 $"
+                            android:text="@{currencyUtil.INSTANCE.splitPriceWithStartCurrency(viewModel.deliveryCharge)}"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/main_font"
+                            android:text="@string/discount"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/discount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/main_font"
+                            tools:text="120 $"
+                            android:text="@{currencyUtil.INSTANCE.splitPriceWithStartCurrency(viewModel.discount)}"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/main_font_bold"
+                            android:text="@string/total"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/total"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/main_font_bold"
+                            tools:text="120 $"
+                            android:text="@{currencyUtil.INSTANCE.splitPriceWithStartCurrency(viewModel.total)}"
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/placeOrder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@drawable/bg_white_round_10sdp"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/_16sdp"
+                        android:paddingBottom="@dimen/_16sdp"
+                        android:text="@string/place_my_order"
+                        android:textColor="#179BD7"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

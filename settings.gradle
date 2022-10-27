@@ -1,0 +1,32 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven { url 'https://maven.google.com' }
+        maven { url 'https://jitpack.io' }
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven {
+            url 'https://api.mapbox.com/downloads/v2/releases/maven'
+            authentication {
+                basic(BasicAuthentication)
+            }
+            credentials {
+                username = "mapbox"
+                password = 'MAPBOX_DOWNLOADS_TOKEN' ?: ""
+            }
+        }
+        maven { url 'https://maven.google.com' }
+        maven { url 'https://jitpack.io' }
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+rootProject.name = "FoodTruck"
+include ':app'
