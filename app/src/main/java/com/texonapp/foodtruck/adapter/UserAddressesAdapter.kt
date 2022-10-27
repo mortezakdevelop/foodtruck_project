@@ -6,12 +6,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.daimajia.swipe.SwipeLayout
 import com.texonapp.foodtruck.R
+import com.texonapp.foodtruck.adapter.cardListener.LocationAddressClickListener
 import com.texonapp.foodtruck.databinding.ItemUserAddressBinding
 import com.texonapp.foodtruck.model.UserAddressModel
 import com.texonapp.foodtruck.roomDb.entity.UserAddressDialogEntity
 
 
-class UserAddressesAdapter(private val data: ArrayList<UserAddressDialogEntity>) :
+class UserAddressesAdapter(private val data: ArrayList<UserAddressDialogEntity> , private var listener:LocationAddressClickListener) :
     RecyclerView.Adapter<UserAddressesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,7 +24,7 @@ class UserAddressesAdapter(private val data: ArrayList<UserAddressDialogEntity>)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(data[position])
+        holder.bind(data[position],listener)
     }
 
     override fun getItemCount(): Int {
@@ -32,10 +33,15 @@ class UserAddressesAdapter(private val data: ArrayList<UserAddressDialogEntity>)
 
     inner class ViewHolder(val binding: ItemUserAddressBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(userAddressDialogEntity: UserAddressDialogEntity) {
+        fun bind(userAddressDialogEntity: UserAddressDialogEntity,listener: LocationAddressClickListener) {
 //            binding.swipeLayout.addDrag(SwipeLayout.DragEdge.Left, binding.swipeLeft)
 //            binding.swipeLayout.addDrag(SwipeLayout.DragEdge.Right, binding.swipeRight);
             binding.address.text = userAddressDialogEntity.userAddressModel.address
+
+            binding.upcommingCardView.setOnClickListener {
+                listener.onItemRVClickListener(userAddressDialogEntity)
+            }
+
             binding.executePendingBindings()
         }
     }

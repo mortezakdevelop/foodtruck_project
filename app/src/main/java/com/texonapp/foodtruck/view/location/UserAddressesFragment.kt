@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import com.google.android.material.snackbar.Snackbar
 import com.texonapp.foodtruck.R
 import com.texonapp.foodtruck.adapter.UserAddressesAdapter
+import com.texonapp.foodtruck.adapter.cardListener.LocationAddressClickListener
 import com.texonapp.foodtruck.databinding.FragmentUserAddressesBinding
 import com.texonapp.foodtruck.model.UserAddressModel
 import com.texonapp.foodtruck.roomDb.entity.UserAddressDialogEntity
@@ -21,11 +22,13 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class UserAddressesFragment : BaseFragment() {
+class UserAddressesFragment : BaseFragment(),LocationAddressClickListener {
 
     private lateinit var binding: FragmentUserAddressesBinding
     private val viewModel: LocationViewModel by viewModels()
     lateinit var userAddressDialogEntity: UserAddressDialogEntity
+
+    var isUpdating = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,9 +52,17 @@ class UserAddressesFragment : BaseFragment() {
             val dialogLayout = inflater.inflate(R.layout.user_address_fragment_alert_dialog, null)
             val editText = dialogLayout.findViewById<EditText>(R.id.et_address)
 
+            if (arguments != null) {
+                userAddressDialogEntity = arguments?.getParcelable("datamodel")!!
+                editText.setText(userAddressDialogEntity.userAddressModel.address)
+                isUpdating = true
+
+            }
+
             with(builder) {
                 setTitle("New Address")
                 setPositiveButton("Save") { dialog, which ->
+
 
                     if (editText.text.isNullOrBlank()) {
                         Snackbar.make(
@@ -63,13 +74,8 @@ class UserAddressesFragment : BaseFragment() {
                         val title = editText.text.toString()
                         val userAddressModel = UserAddressModel(title)
                         viewModel.insertToNoteModel(userAddressModel)
-                        ToastUtil.showToast("data inserted")
+                        ToastUtil.showToast("The address has been successfully added to the list")
 
-                        if (arguments != null) {
-                            userAddressDialogEntity = arguments?.getParcelable("datamodel")!!
-                            editText.setText(userAddressDialogEntity.userAddressModel.address)
-
-                        }
                     }
                 }
 
@@ -88,7 +94,7 @@ class UserAddressesFragment : BaseFragment() {
                     data.add(it)
                 }
             }
-            binding.recyclerView.adapter = UserAddressesAdapter(data)
+            binding.recyclerView.adapter = UserAddressesAdapter(data,this)
         }
 //        val data: ArrayList<UserAddressModel> = ArrayList()
 //        data.add(UserAddressModel("title1"))
