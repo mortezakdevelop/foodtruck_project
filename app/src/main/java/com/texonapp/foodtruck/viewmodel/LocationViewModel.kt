@@ -49,6 +49,12 @@ class LocationViewModel @Inject constructor(
         }
     }
 
+    fun updateModel(userAddressDialogEntity: UserAddressDialogEntity){
+        viewModelScope.launch(Dispatchers.IO) {
+            locationRepository.updateModel(userAddressDialogEntity)
+        }
+    }
+
 //    private val _idleState = MutableLiveData<LocationState>(
 //        LocationState.Idle
 //    )

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.google.android.material.snackbar.Snackbar
@@ -28,8 +29,6 @@ class UserAddressesFragment : BaseFragment(),LocationAddressClickListener {
     private val viewModel: LocationViewModel by viewModels()
     lateinit var userAddressDialogEntity: UserAddressDialogEntity
 
-    var isUpdating = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -47,44 +46,85 @@ class UserAddressesFragment : BaseFragment(),LocationAddressClickListener {
         initMainToolbar(binding.toolbar)
         //initialData()
         binding.newAddress.setOnClickListener {
-            val builder = AlertDialog.Builder(requireContext())
-            val inflater: LayoutInflater = layoutInflater
-            val dialogLayout = inflater.inflate(R.layout.user_address_fragment_alert_dialog, null)
-            val editText = dialogLayout.findViewById<EditText>(R.id.et_address)
 
-            if (arguments != null) {
-                userAddressDialogEntity = arguments?.getParcelable("datamodel")!!
-                editText.setText(userAddressDialogEntity.userAddressModel.address)
-                isUpdating = true
-
-            }
-
-            with(builder) {
-                setTitle("New Address")
-                setPositiveButton("Save") { dialog, which ->
-
-
-                    if (editText.text.isNullOrBlank()) {
-                        Snackbar.make(
-                            binding.llAddress,
-                            "please enter address ...",
-                            Snackbar.LENGTH_LONG
-                        ).show()
-                    } else {
-                        val title = editText.text.toString()
-                        val userAddressModel = UserAddressModel(title)
-                        viewModel.insertToNoteModel(userAddressModel)
-                        ToastUtil.showToast("The address has been successfully added to the list")
-
-                    }
-                }
-
-                setView(dialogLayout)
-                show()
-            }
+            addButtonNewAddress()
             // findNavController().navigate(R.id.action_userAddressesFragment_to_mapsFragment)
         }
  }
+
+    private fun addButtonNewAddress(){
+        val builder = AlertDialog.Builder(requireContext())
+        val inflater: LayoutInflater = layoutInflater
+        val dialogLayout = inflater.inflate(R.layout.user_address_fragment_alert_dialog, null)
+        val editText = dialogLayout.findViewById<EditText>(R.id.et_address)
+
+        if (arguments != null) {
+            userAddressDialogEntity = arguments?.getParcelable("datamodel")!!
+            editText.setText(userAddressDialogEntity.userAddressModel.address)
+        }
+
+        with(builder) {
+            setTitle("New Address")
+            setPositiveButton("Save") { dialog, which ->
+
+
+                if (editText.text.isNullOrBlank()) {
+                    Snackbar.make(
+                        binding.llAddress,
+                        "please enter address ...",
+                        Snackbar.LENGTH_LONG
+                    ).show()
+                } else {
+                    val title = editText.text.toString()
+                    val userAddressModel = UserAddressModel(title)
+                    viewModel.insertToNoteModel(userAddressModel)
+                    ToastUtil.showToast("The address has been successfully added to the list")
+
+                }
+            }
+
+            setView(dialogLayout)
+            show()
+        }
+    }
+
+
+    override fun onItemRVClickListener(userAddressDialogEntity: UserAddressDialogEntity) {
+        super.onItemRVClickListener(userAddressDialogEntity)
+
+        val builder = AlertDialog.Builder(requireContext())
+        val inflater: LayoutInflater = layoutInflater
+        val dialogLayout = inflater.inflate(R.layout.user_address_fragment_alert_dialog, null)
+        val editText = dialogLayout.findViewById<EditText>(R.id.et_address)
+
+        if (arguments != null) {
+            this.userAddressDialogEntity = arguments?.getParcelable("datamodel")!!
+            editText.setText(userAddressDialogEntity.userAddressModel.address)
+        }
+
+        with(builder) {
+            setTitle("Update Address")
+            setPositiveButton("Save") { dialog, which ->
+
+
+                if (editText.text.isNullOrBlank()) {
+                    Snackbar.make(
+                        binding.llAddress,
+                        "please enter address ...",
+                        Snackbar.LENGTH_LONG
+                    ).show()
+                } else {
+                    userAddressDialogEntity.userAddressModel.address = editText.text.toString()
+                    viewModel.updateModel(userAddressDialogEntity)
+                    ToastUtil.showToast("address updated")
+                }
+            }
+
+            setView(dialogLayout)
+            show()
+        }
+
+    }
 
     private fun initRecyclerView() {
         viewModel.liveData.observe(viewLifecycleOwner){ listData ->
@@ -96,6 +136,7 @@ class UserAddressesFragment : BaseFragment(),LocationAddressClickListener {
             }
             binding.recyclerView.adapter = UserAddressesAdapter(data,this)
         }
+
 //        val data: ArrayList<UserAddressModel> = ArrayList()
 //        data.add(UserAddressModel("title1"))
 //        data.add(UserAddressModel("title2"))

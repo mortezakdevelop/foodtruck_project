@@ -29,6 +29,10 @@ class LocationRepository @Inject constructor(
     fun getAllData(): Flow<List<UserAddressDialogEntity>> {
         return roomDao.getAll()
     }
+
+    fun updateModel(userAddressDialogEntity: UserAddressDialogEntity){
+        roomDao.update(userAddressDialogEntity)
+    }
 }
 
 //object LocationRepository {

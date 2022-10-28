@@ -1,8 +1,6 @@
 package com.texonapp.foodtruck.roomDb.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.texonapp.foodtruck.roomDb.entity.UserAddressDialogEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -15,4 +13,12 @@ interface UserAddressDialogDao {
 
     @Insert
     fun insert(userAddressDialogEntity: UserAddressDialogEntity)
+
+
+    @Delete
+    fun delete(userAddressDialogEntity: UserAddressDialogEntity)
+
+
+    @Update
+    fun update(userAddressDialogEntity: UserAddressDialogEntity)
 }
