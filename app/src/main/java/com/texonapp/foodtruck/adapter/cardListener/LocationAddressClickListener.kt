@@ -9,7 +9,7 @@ interface LocationAddressClickListener {
 
     }
 
-    fun onMenuItemRVClickListener(imageFilterButton: View,userAddressDialogEntity: UserAddressDialogEntity){
+    fun onDeleteItemListener(imageFilterButton: View,userAddressDialogEntity: UserAddressDialogEntity){
 
     }
 }

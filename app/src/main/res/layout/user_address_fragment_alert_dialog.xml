@@ -6,6 +6,7 @@
 
     <EditText
         android:hint="Enter new address"
+        android:paddingStart="@dimen/_10sdp"
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/et_address"
         android:layout_width="match_parent"

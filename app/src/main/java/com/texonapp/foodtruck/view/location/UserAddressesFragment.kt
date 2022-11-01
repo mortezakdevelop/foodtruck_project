@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.google.android.material.snackbar.Snackbar
@@ -23,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class UserAddressesFragment : BaseFragment(),LocationAddressClickListener {
+class UserAddressesFragment : BaseFragment(), LocationAddressClickListener {
 
     private lateinit var binding: FragmentUserAddressesBinding
     private val viewModel: LocationViewModel by viewModels()
@@ -37,7 +36,12 @@ class UserAddressesFragment : BaseFragment(),LocationAddressClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(layoutInflater,R.layout.fragment_user_addresses,container,false)
+        binding = DataBindingUtil.inflate(
+            layoutInflater,
+            R.layout.fragment_user_addresses,
+            container,
+            false
+        )
         initRecyclerView()
         return binding.root
     }
@@ -46,13 +50,12 @@ class UserAddressesFragment : BaseFragment(),LocationAddressClickListener {
         initMainToolbar(binding.toolbar)
         //initialData()
         binding.newAddress.setOnClickListener {
-
             addButtonNewAddress()
             // findNavController().navigate(R.id.action_userAddressesFragment_to_mapsFragment)
         }
- }
+    }
 
-    private fun addButtonNewAddress(){
+    private fun addButtonNewAddress() {
         val builder = AlertDialog.Builder(requireContext())
         val inflater: LayoutInflater = layoutInflater
         val dialogLayout = inflater.inflate(R.layout.user_address_fragment_alert_dialog, null)
@@ -76,7 +79,7 @@ class UserAddressesFragment : BaseFragment(),LocationAddressClickListener {
                     ).show()
                 } else {
                     val title = editText.text.toString()
-                    val userAddressModel = UserAddressModel(title)
+                    val userAddressModel = UserAddressModel(title,false)
                     viewModel.insertToNoteModel(userAddressModel)
                     ToastUtil.showToast("The address has been successfully added to the list")
 
@@ -88,6 +91,13 @@ class UserAddressesFragment : BaseFragment(),LocationAddressClickListener {
         }
     }
 
+    override fun onDeleteItemListener(
+        imageFilterButton: View,
+        userAddressDialogEntity: UserAddressDialogEntity
+    ) {
+        super.onDeleteItemListener(imageFilterButton, userAddressDialogEntity)
+        deleteNoteFromDb(userAddressDialogEntity)
+    }
 
     override fun onItemRVClickListener(userAddressDialogEntity: UserAddressDialogEntity) {
         super.onItemRVClickListener(userAddressDialogEntity)
@@ -106,7 +116,6 @@ class UserAddressesFragment : BaseFragment(),LocationAddressClickListener {
             setTitle("Update Address")
             setPositiveButton("Save") { dialog, which ->
 
-
                 if (editText.text.isNullOrBlank()) {
                     Snackbar.make(
                         binding.llAddress,
@@ -123,18 +132,17 @@ class UserAddressesFragment : BaseFragment(),LocationAddressClickListener {
             setView(dialogLayout)
             show()
         }
-
     }
 
     private fun initRecyclerView() {
-        viewModel.liveData.observe(viewLifecycleOwner){ listData ->
+        viewModel.liveData.observe(viewLifecycleOwner) { listData ->
             val data: ArrayList<UserAddressDialogEntity> = ArrayList()
             listData.forEach {
                 if (!data.contains(it)) {
                     data.add(it)
                 }
             }
-            binding.recyclerView.adapter = UserAddressesAdapter(data,this)
+            binding.recyclerView.adapter = UserAddressesAdapter(data, this)
         }
 
 //        val data: ArrayList<UserAddressModel> = ArrayList()
@@ -150,6 +158,9 @@ class UserAddressesFragment : BaseFragment(),LocationAddressClickListener {
     }
 
 
+    fun deleteNoteFromDb(userAddressDialogEntity: UserAddressDialogEntity) {
+        viewModel.deleteAddress(userAddressDialogEntity)
+    }
 
 //    private fun initialData() {
 //        initRecycler()

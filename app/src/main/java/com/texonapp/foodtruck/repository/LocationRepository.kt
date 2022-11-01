@@ -33,6 +33,10 @@ class LocationRepository @Inject constructor(
     fun updateModel(userAddressDialogEntity: UserAddressDialogEntity){
         roomDao.update(userAddressDialogEntity)
     }
+
+    fun deleteAddress(userAddressDialogEntity: UserAddressDialogEntity) {
+        roomDao.delete(userAddressDialogEntity)
+    }
 }
 
 //object LocationRepository {

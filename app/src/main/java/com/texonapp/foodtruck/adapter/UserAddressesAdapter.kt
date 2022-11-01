@@ -10,10 +10,23 @@ import com.texonapp.foodtruck.adapter.cardListener.LocationAddressClickListener
 import com.texonapp.foodtruck.databinding.ItemUserAddressBinding
 import com.texonapp.foodtruck.model.UserAddressModel
 import com.texonapp.foodtruck.roomDb.entity.UserAddressDialogEntity
+import com.texonapp.foodtruck.util.VIEW_TYPE_ITEM
+import com.texonapp.foodtruck.util.VIEW_TYPE_LOADING
+import com.texonapp.foodtruck.util.publicTools.AdapterListener
 
 
-class UserAddressesAdapter(private val data: ArrayList<UserAddressDialogEntity> , private var listener:LocationAddressClickListener) :
+class UserAddressesAdapter(
+    private val data: ArrayList<UserAddressDialogEntity>,
+    private var listener: LocationAddressClickListener,
+    var selectedPosition: Int = -1,
+    var itemListener: AdapterListener? = null
+
+) :
     RecyclerView.Adapter<UserAddressesAdapter.ViewHolder>() {
+
+    override fun getItemViewType(position: Int): Int {
+        return if (data[position] == null) VIEW_TYPE_LOADING else VIEW_TYPE_ITEM
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemUserAddressBinding: ItemUserAddressBinding = DataBindingUtil.inflate(
@@ -24,29 +37,54 @@ class UserAddressesAdapter(private val data: ArrayList<UserAddressDialogEntity> 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(data[position],listener)
+        holder.bind(data[position], listener)
     }
 
     override fun getItemCount(): Int {
         return data.size
     }
 
+    private fun itemSelected(selectedPosition: Int) {
+        if (this.selectedPosition == selectedPosition)
+            return
+        if (this.selectedPosition != -1) {
+            (data[this.selectedPosition]).userAddressModel.default = false
+            notifyItemChanged(this.selectedPosition)
+        }
+        (data[selectedPosition]).userAddressModel.default = true
+        notifyItemChanged(selectedPosition)
+    }
+
+
     inner class ViewHolder(val binding: ItemUserAddressBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(userAddressDialogEntity: UserAddressDialogEntity,listener: LocationAddressClickListener) {
-//            binding.swipeLayout.addDrag(SwipeLayout.DragEdge.Left, binding.swipeLeft)
-//            binding.swipeLayout.addDrag(SwipeLayout.DragEdge.Right, binding.swipeRight);
+        fun bind(
+            userAddressDialogEntity: UserAddressDialogEntity,
+            listener: LocationAddressClickListener
+        ) {
+            binding.swipeLayout.addDrag(SwipeLayout.DragEdge.Left, binding.swipeLeft)
+            binding.swipeLayout.addDrag(SwipeLayout.DragEdge.Right, binding.swipeRight);
             binding.address.text = userAddressDialogEntity.userAddressModel.address
-
-            binding.upcommingCardView.setOnClickListener {
+            binding.background.isSelected = userAddressDialogEntity.userAddressModel.default
+            binding.checkBox.isSelected = userAddressDialogEntity.userAddressModel.default
+            if (userAddressDialogEntity.userAddressModel.default)
+                selectedPosition = position
+            binding.background.setOnClickListener {
+                itemListener?.onItemClick(position, userAddressDialogEntity.userAddressModel)
+                itemSelected(position)
+            }
+            binding.edit.setOnClickListener {
                 listener.onItemRVClickListener(userAddressDialogEntity)
+            }
+
+            binding.delete.setOnClickListener {
+                listener.onDeleteItemListener(it, userAddressDialogEntity)
             }
 
             binding.executePendingBindings()
         }
     }
 }
-
 
 //class UserAddressesAdapter(private var data: ArrayList<UserAddressDialogEntity>) :
 //    RecyclerView.Adapter<RecyclerView.ViewHolder>() {

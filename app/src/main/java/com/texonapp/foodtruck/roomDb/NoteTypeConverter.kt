@@ -21,13 +21,13 @@ class NoteTypeConverter {
     }
 
     @TypeConverter
-    fun toDataClass(note:String?):UserAddressModel?{
-        if(note == null){
+    fun toDataClass(address:String?):UserAddressModel?{
+        if(address == null){
             return null
         }
 
         val gson = Gson()
         val type:Type = object :TypeToken<UserAddressModel?>(){}.type
-        return gson.fromJson(note,type)
+        return gson.fromJson(address,type)
     }
 }

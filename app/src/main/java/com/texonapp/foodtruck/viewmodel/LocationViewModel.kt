@@ -55,6 +55,12 @@ class LocationViewModel @Inject constructor(
         }
     }
 
+    fun deleteAddress(userAddressDialogEntity: UserAddressDialogEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            locationRepository.deleteAddress(userAddressDialogEntity)
+        }
+    }
+
 //    private val _idleState = MutableLiveData<LocationState>(
 //        LocationState.Idle
 //    )
